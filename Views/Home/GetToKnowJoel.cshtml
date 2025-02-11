@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Get to Know Joel";
+}
+
+<style>
+    /* Page Styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    /* Container Styling */
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    h1 {
+        color: #0073e6;
+        font-size: 28px;
+    }
+
+    h3 {
+        color: #444;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    /* Sections */
+    .section {
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #eaf2ff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    a {
+        text-decoration: none;
+        color: #0073e6;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    a:hover {
+        color: #ff6600;
+    }
+
+    /* Image Styling */
+    .image-container {
+        margin-top: 15px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+
+    img:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<div class="container">
+    <h1>Joel loves comedy and movies.</h1>
+    <h3>Check out these links to learn more about his hobbies</h3>
+
+    <div class="section">
+        <p>Joel is a regular performer of comedy shows at <strong>Quick Wits Comedy</strong></p>
+        <a href="https://www.qwcomedy.com/" target="_blank">Visit Quick Wits Comedy 🎭</a>
+    </div>
+
+    <div class="section">
+        <p>He also loves movies and has his own podcast about films and pop culture called <strong>Baconsale</strong>.</p>
+        <a href="https://baconsale.com/" target="_blank">Visit Baconsale 🎬</a>
+
+        <div class="image-container">
+            <a href="https://baconsale.com/" target="_blank">
+                <img src="~/img/baconsalekate.jpg" alt="Baconsale Podcast">
+            </a>
+        </div>
+    </div>
+</div>

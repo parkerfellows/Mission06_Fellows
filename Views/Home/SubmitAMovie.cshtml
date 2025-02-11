@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Submit A Movie";
+}
+<h1>Fill out the form below to submit a movie to my database.</h1>
+
+<div class="form-container">
+    <h2>Movie Information</h2>
+    <form asp-action="SubmitForm" method="post">
+        <label for="category">Category:</label>
+        <input type="text" id="name" name="Category" required />
+        <br />
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="Title" required />
+        <br />
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="Year" required />
+        <br />
+        <label for="director">Director:</label>
+		<input type="text" id="director" name="Director" required />
+        <br />
+        <label for="rating">Rating:</label>
+        <select id="rating" name="Rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+        <br />
+        <label for="edited">Edited:</label>
+        <div>
+			<input type="radio" id="edited" name="Edited" value="true" required />
+			<label for="edited">Yes</label>
+			<input type="radio" id="edited" name="Edited" value="false" required />
+			<label for="edited">No</label>
+        </div>
+        <br />
+        <label for="lentto">Lent to:</label>
+		<input type="text" id="lentto" name="LentTo" />
+        <br />
+		<label for="notes">Notes:</label>
+		<textarea id="notes" name="Notes" maxlength="25" oninput="updateCharCount()"></textarea>
+		<p id="charCount">0/25 characters</p>
+        <br />
+		<button type="submit">Submit</button>
+    </form>
+    <script>
+        function updateCharCount() {
+            var textarea = document.getElementById("notes");
+            var charCount = document.getElementById("charCount");
+            charCount.textContent = textarea.value.length + " / 25 characters";
+        }
+    </script>
+</div>
