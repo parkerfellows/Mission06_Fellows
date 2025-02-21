@@ -1,0 +1,70 @@
+﻿@using Mission06_Fellows.Models;
+@model Movie;
+
+<h1>Fill out the form below to submit a movie to my database.</h1>
+
+<div class="form-container">
+    <h2>Movie Information</h2>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="MovieId" />
+        <label asp-for="CategoryId">Category:</label>
+        <select asp-for="CategoryId" required>
+            <option value="">-- Select a Category --</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.CategoryId" selected="@(Model.CategoryId == category.CategoryId)">
+                    @category.CategoryName
+                </option>
+            }
+        </select>
+        <br />
+        <label asp-for="Title">Title:</label>
+        <input asp-for="Title" required />
+        <br />
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" min="1888" required />
+        <br />
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director" required />
+        <br />
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating">
+            <option value="G" selected="@(Model.Rating == "G")">G</option>
+            <option value="PG" selected="@(Model.Rating == "PG")">PG</option>
+            <option value="PG-13" selected="@(Model.Rating == "PG-13")">PG-13</option>
+            <option value="R" selected="@(Model.Rating == "R")">R</option>
+        </select>
+        <br />
+        <label asp-for="Edited">Edited:</label>
+        <div>
+            <input type="radio" asp-for="Edited" value="true" checked="@Model.Edited" required />
+            <label for="edited">Yes</label>
+            <input type="radio" asp-for="Edited" value="false" checked="@(!Model.Edited)" required />
+            <label for="edited">No</label>
+        </div>
+        <br />
+        <label asp-for="CopiedToPlex">Copied To Plex:</label>
+        <div>
+            <input type="radio" asp-for="CopiedToPlex" value="true" checked="@Model.CopiedToPlex" required />
+            <label for="copied">Yes</label>
+            <input type="radio" asp-for="CopiedToPlex" value="false" checked="@(!Model.CopiedToPlex)" required />
+            <label for="copied">No</label>
+        </div>
+        <br />
+        <label asp-for="LentTo">Lent to:</label>
+        <input asp-for="LentTo" />
+        <br />
+        <label asp-for="Notes">Notes:</label>
+        <textarea asp-for="Notes" maxlength="25" oninput="updateCharCount()"></textarea>
+        <p id="charCount">@(Model.Notes?.Length ?? 0)/25 characters</p>
+        <br />
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function updateCharCount() {
+            var textarea = document.getElementById("notes");
+            var charCount = document.getElementById("charCount");
+            charCount.textContent = textarea.value.length + " / 25 characters";
+        }
+    </script>
+</div>
